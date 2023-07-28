@@ -15,7 +15,7 @@ Note: I ran this model on a realivly low epoch with information that was a minis
 5. Then run this code -$ ./docker/run.sh the code moves the final-projects folder into the docker container so that the images from vs code are there
 6a. Then change directories to jetson-inference/python/training/classification. Paste the following code - $ python3 train.py --model-dir=models/car_motorcycle data/car_motorcycle
 6b. your model should be training pretty quickly so when its done run this code in the docker to export it.python3 onnx_export.py --model-dir=models/car_motorcycle.
-7. exit the docker by typing exit or pressing ctrl + d and run the two lines of code:NET=models/car_motorcycle and DATASET=data/car_motorcycle
+7. exit the docker by typing exit or pressing ctrl + d and cd python/training/classification run the two lines of code:NET=models/car_motorcycle and DATASET=data/car_motorcycle
 8. finally run this command:imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/car/01.jpg TEST_PHOTO.jpg
 9. after opening vs code you should see your image with a percentage of vehicle. 
 
